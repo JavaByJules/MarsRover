@@ -61,6 +61,28 @@ public class MarsRoverTest {
         assertEquals("North", marsRover.right("West"));
     }
 
+    @Test
+    public void testValidateInitialPosition() {
+        assertTrue(marsRover.validateInitialPosition(4, 4));
+    }
+
+    @Test
+    public void testValidateInitialPositionNotMatchingExistingVehicle() {
+        assertFalse(marsRover.validateInitialPosition(4, 5));
+    }
+
+    @Test
+    public void testParseVehicleMovements() {
+        String vehicleMovements = "LLMMRR";
+        assertTrue(marsRover.parseVehicleMovements(vehicleMovements));
+    }
+
+    @Test
+    public void testParseVehicleMovementsRogueCharacter() {
+        String vehicleMovements = "LLMMRRT";
+        assertFalse(marsRover.parseVehicleMovements(vehicleMovements));
+    }
+
 
 //    public void testConvertDecimalToRoman() {
  //       System.out.printf("Input: %d, Expected: %s\n", 1999, "MCMXCIX");
