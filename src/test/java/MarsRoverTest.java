@@ -17,48 +17,48 @@ public class MarsRoverTest {
     @Test
     public void testOutputFinalCoordinates() {
         int x = 12, y = 12;
-        String direction = "South";
-        assertEquals(x + " " + y + " " + direction.charAt(0), marsRover.outputFinalCoordinates(x, y, direction));
+        Character direction = 'S';
+        assertEquals(x + " " + y + " " + direction, marsRover.outputFinalCoordinates(x, y, direction));
     }
 
     @Test
     public void testLeftDirectionNorth() {
-        assertEquals("West", marsRover.left("North"));
+        assertEquals('W', marsRover.left('N'));
     }
 
     @Test
     public void testLeftDirectionWest() {
-        assertEquals("South", marsRover.left("West"));
+        assertEquals('S', marsRover.left('W'));
     }
 
     @Test
     public void testLeftDirectionSouth() {
-        assertEquals("East", marsRover.left("South"));
+        assertEquals('E', marsRover.left('S'));
     }
 
     @Test
     public void testLeftDirectionEast() {
-        assertEquals("North", marsRover.left("East"));
+        assertEquals('N', marsRover.left('E'));
     }
 
     @Test
     public void testRightDirectionNorth() {
-        assertEquals("East", marsRover.right("North"));
+        assertEquals('E', marsRover.right('N'));
     }
 
     @Test
     public void testRightDirectionEast() {
-        assertEquals("South", marsRover.right("East"));
+        assertEquals('S', marsRover.right('E'));
     }
 
     @Test
     public void testRightDirectionSouth() {
-        assertEquals("West", marsRover.right("South"));
+        assertEquals('W', marsRover.right('S'));
     }
 
     @Test
     public void testRightDirectionWest() {
-        assertEquals("North", marsRover.right("West"));
+        assertEquals('N', marsRover.right('W'));
     }
 
     @Test

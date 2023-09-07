@@ -6,55 +6,46 @@ import java.util.List;
 public class MarsRover extends Vehicle implements Output, Move, Validate, Parse {
 
     @Override
-    public String left(String direction) {
-        String newDirection = switch (direction) {
-            case "North" -> "West";
-            case "West" -> "South";
-            case "South" -> "East";
-            case "East" -> "North";
-            default -> "Incorrect direction sent";
+    public Character left(Character direction) {
+        Character newDirection = switch (direction) {
+            case 'N' -> 'W';
+            case 'W' -> 'S';
+            case 'S' -> 'E';
+            case 'E' -> 'N';
+            default -> 'X';
         };
 
         return newDirection;
     }
 
     @Override
-    public String right(String direction) {
-        String newDirection = switch (direction) {
-            case "North" -> "East";
-            case "East" -> "South";
-            case "South" -> "West";
-            case "West" -> "North";
-            default -> "Incorrect direction sent";
+    public Character right(Character direction) {
+        Character newDirection = switch (direction) {
+            case 'N' -> 'E';
+            case 'E' -> 'S';
+            case 'S' -> 'W';
+            case 'W' -> 'N';
+            default -> 'X';
         };
 
         return newDirection;
     }
     @Override
-    public void moveX(int[] xArray, String direction)
+    public void moveVehicle(int[] xArray, int[] yArray, Character direction)
     {
         switch (direction) {
-            case "East" -> xArray[0]++;
-            case "West" -> xArray[0]--;
+            case 'E' -> xArray[0]++;
+            case 'W'-> xArray[0]--;
+            case 'N' -> yArray[0]++;
+            case 'S'-> yArray[0]--;
             default -> {
             }
         }
     }
 
     @Override
-    public void moveY(int[] yArray, String direction)
-    {
-        switch (direction) {
-            case "North" -> yArray[0]++;
-            case "South" -> yArray[0]--;
-            default -> {
-            }
-        }
-    }
-
-    @Override
-    public String outputFinalCoordinates(int positionX, int positionY, String direction) {
-        return positionX + " " + positionY + " " + direction.charAt(0);
+    public String outputFinalCoordinates(int positionX, int positionY, Character direction) {
+        return positionX + " " + positionY + " " + direction;
     }
 
     @Override
